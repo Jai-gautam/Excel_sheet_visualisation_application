@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Excel-Project</title>
+        <style>
+            /* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Microsoft's preferred font family */
+    background-color: #f0f4f7; /* Light grayish-blue background, similar to Excel's app background */
+    color: #333; /* Dark gray for general text */
+    line-height: 1.6;
+    margin: 40px auto; /* Center the content a bit and add top/bottom margin */
+    padding: 0 20px;
+    max-width: 800px; /* Limit content width for better readability */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow for a "card" effect */
+    border-radius: 8px; /* Slightly rounded corners for the main body/container */
+    background: #fff; /* White background for the content area */
+}
+
+/* Heading Styles */
+h2 {
+    color: #217346; /* A prominent green, reminiscent of Excel's primary color */
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0; /* Subtle line below the heading */
+    font-size: 2.2em;
+    font-weight: 600; /* Slightly bolder */
+}
+
+h3 {
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+    padding: 20px;
+    border: 1px solid #e0e0e0; /* Light border around the form */
+    border-radius: 6px;
+    background-color: #fdfdfd; /* Slightly off-white for the form background */
+}
+
+/* Input Field Styles */
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 5px; /* Less margin as we're using gap in form */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px;
+    font-size: 1em;
+    color: #555;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for focus */
+}
+
+input[type="text"]::placeholder {
+    color: #a0a0a0; /* Lighter placeholder text */
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #0078d4; /* Microsoft blue on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2); /* Subtle blue glow on focus */
+}
+
+/* Specific styling for file input to make it look more like a button */
+input[type="file"] {
+    padding: 10px; /* Adjust padding for a better visual */
+    background-color: #e6e6e6; /* Light gray background */
+    cursor: pointer;
+}
+
+/* Button Styles */
+button[type="submit"] {
+    background-color: #217346; /* Excel green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    align-self: flex-start; /* Align button to the start within the flex container */
+    margin-top: 10px; /* Space above the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #1a5e37; /* Darker green on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+button[type="submit"]:active {
+    background-color: #144b2c; /* Even darker green on click */
+    transform: translateY(0);
+}
+
+/* Graph Image Styles */
+img {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+    margin: 30px auto; /* Center the image and add margin */
+    border: 1px solid #e0e0e0; /* Light border around the image */
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for the image */
+}
+        </style>
+    </head>
+    <body>
+<h2>EXCEL-PROJECT</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="excelfiles" value="{{files}}" required multiple>
+    <br><br>
+    <input type="text" name="address" value="{{address}}" placeholder="Enter details eg:sheetname.tablename">
+    <br><br>
+    <input type="text" name="need" value="{{need}}" placeholder="Enter requirement eg:column1values Where column2values == 50 ">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+{% if graph_url %}  
+    <h3>Generated graph:</h3>
+    <img src="{{ graph_url }}" alt="graph">
+{% endif %}
+</body>
+</html>
+{% endblock %}
+

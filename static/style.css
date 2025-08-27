@@ -1,0 +1,92 @@
+/* style.css */
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6; /* Light gray background for the main area */
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*
+--- --- --- --- --- ---
+ Sidebar Styles
+--- --- --- --- --- ---
+*/
+
+.sidebar {
+    background-color: #1e293b; /* Dark slate background */
+    min-height: 100vh; /* Full height sidebar */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fix the sidebar */
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+}
+
+/* Sidebar Navigation Links */
+.sidebar .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #cbd5e1; /* Light text color for contrast */
+    padding: 1rem 1.5rem;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover & Active States */
+.sidebar .nav-link:hover {
+    background-color: #334155; /* Slightly lighter dark shade on hover */
+    color: #ffffff;
+    transform: translateX(5px); /* Subtle movement on hover */
+}
+
+/* Add an .active class to your backend logic to highlight the current page */
+.sidebar .nav-link.active {
+    background-color: #0ea5e9; /* A vibrant accent color for the active link */
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/*
+--- --- --- --- --- ---
+ Main Content Styles
+--- --- --- --- --- ---
+*/
+main.col-md-10 {
+    margin-left: 16.666667%; /* Offset for the fixed sidebar */
+    padding: 2rem;
+}
+
+
+/*
+--- --- --- --- --- ---
+ Content Example Styles (Optional)
+ You can use these classes inside your {% block content %}
+--- --- --- --- --- ---
+*/
+
+h1, h2, h3 {
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
