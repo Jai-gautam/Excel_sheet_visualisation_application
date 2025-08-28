@@ -23,41 +23,74 @@ body {
 --- --- --- --- --- ---
 */
 
+/* Sidebar */
 .sidebar {
-    background-color: #1e293b; /* Dark slate background */
-    min-height: 100vh; /* Full height sidebar */
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Fix the sidebar */
+    width: 220px;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    padding-top: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    z-index: 100;
+    height: 100vh;
 }
 
-/* Sidebar Navigation Links */
-.sidebar .nav-link {
-    font-size: 1rem;
+/* Sidebar list */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Sidebar links */
+.sidebar ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
     font-weight: 500;
-    color: #cbd5e1; /* Light text color for contrast */
-    padding: 1rem 1.5rem;
-    margin: 5px 0;
-    border-radius: 8px;
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Hover & Active States */
-.sidebar .nav-link:hover {
-    background-color: #334155; /* Slightly lighter dark shade on hover */
-    color: #ffffff;
-    transform: translateX(5px); /* Subtle movement on hover */
+.sidebar ul li a:hover {
+    background: #f5f5f5;
+    color: #007bff;
+    transform: translateX(5px);
 }
 
-/* Add an .active class to your backend logic to highlight the current page */
-.sidebar .nav-link.active {
-    background-color: #0ea5e9; /* A vibrant accent color for the active link */
-    color: #ffffff;
+.sidebar ul li a.active {
+    background: #007bff;
+    color: #fff;
     font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+/* Content (pushed to the right of sidebar) */
+.content {
+    margin-left: 220px;  /* same as sidebar width */
+    padding: 40px;
+    flex: 1;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .content {
+        margin-left: 0;   /* no push on mobile */
+        padding: 20px;
+    }
+}
+
 
 
 /*
@@ -90,3 +123,72 @@ h1, h2, h3 {
     padding: 2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+.card h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+.card p {
+    color: #475569;
+    line-height: 1.6;
+}
+.card a {
+    color: #0ea5e9;
+    text-decoration: none;
+}
+.card a:hover {
+    text-decoration: underline;
+}
+.card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+.card button {
+    background-color: #0ea5e9;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.card button:hover {
+    background-color: #0284c7;
+}
+.card button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5);
+}
+.card button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+.card button:disabled:hover {
+    background-color: #94a3b8;
+}
+.card button:disabled:focus {
+    box-shadow: none;
+}
+.card ul {
+    padding-left: 1.5rem;
+    color: #475569;
+}
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+.card ul li::marker {
+    color: #0ea5e9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        height: auto;
+        min-height: 0;
+    }
+    main.col-md-10 {
+        margin-left: 0;
+    }
+}  
