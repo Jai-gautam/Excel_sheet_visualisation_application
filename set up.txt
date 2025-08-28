@@ -1,0 +1,7 @@
+python -m venv venv  {create a venv}
+
+venv\Scripts\Activate {activate venv}
+
+pip install flask openpyxl pandas matplotlib {installing librarties}
+
+python app.py {runs applicattion}
